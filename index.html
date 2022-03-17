@@ -1,0 +1,58 @@
+var readlineSync = require("readline-sync");
+
+var highScore = [
+  {
+    name: "Tushar",
+    score: 2
+  },
+  {
+    name: "Mom",
+    score: 1
+  }
+]
+var score = 0;
+
+var userName = readlineSync.question("What is your name? ");
+
+console.log("Welcome "+userName+ " Do you know Tushar? ");
+
+function play(question, answer)
+{
+  var userAnswer = readlineSync.question(question);
+  
+  if (userAnswer === answer)
+  {
+    console.log("You are right!");
+    score++;
+  }
+  else
+  {
+    console.log("You are wrong");
+  }
+  console.log("Your current score is "+score);
+  console.log("---------------------");
+}
+
+// array of objects
+var questions = [{
+  question: "Where do I live? ",
+  answer: "Pune"
+}, {
+  question: "What is Tushar's favourite superhero? ",
+  answer: "Batman"
+}];
+
+for (var i=0; i<questions.length; i++){
+  play(questions[i].question, questions[i].answer);
+}
+
+console.log("Your final score is "+score);
+
+console.log("Check out the High Scores:");
+
+for (var j=0; j<highScore.length; j++){
+
+  console.log(highScore[j].name+": "+highScore[j].score);
+}
+
+console.log("If you have beaten the High Score please send us the screenshot.");
