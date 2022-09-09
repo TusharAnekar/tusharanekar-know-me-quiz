@@ -11,3 +11,5 @@ Answer 5 basic questions of Tushar Anekar, you will be given 3 options for every
     <li>Object</li>
     <li>Loop</li>
 </ul>
+
+<img src="images/KnowMeQuiz.PNG">
