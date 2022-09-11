@@ -7,6 +7,7 @@ var options = ["A", "B", "C"];
 var userName = readlineSync.question("What is your name? ");
 
 console.log("Welcome " + userName + " Do you know Tushar? ");
+console.log("Answer five questions and then decide yourself.\nJust enter 1,2,3 or 0 as answer.");
 
 function play(question, answer) {
 
