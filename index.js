@@ -2,33 +2,24 @@ var readlineSync = require("readline-sync");
 
 var score = 0;
 
-var options = ["A", "B", "C"];
-
 var userName = readlineSync.question("What is your name? ");
 
 console.log("Welcome " + userName + " Do you know Tushar? ");
-console.log("Answer five questions and then decide yourself.\nJust enter 1,2,3 or 0 as answer.");
-
+console.log("Answer five questions and then decide yourself.");
+console.log("Please answer the questions by entering [a,b,c] or [A, B, C]");
 function play(question, answer) {
 
-  var index = readlineSync.keyInSelect(options, question);
+  var userAnswer = readlineSync.question(question);
 
-  if (options[index] === undefined) {
-    console.log("Thank you for playing this game.")
-    return false;
+  if (userAnswer.toUpperCase() === answer) {
+    console.log("You are right!");
+    score++;
   }
   else {
-    if (options[index] === answer) {
-      console.log("You are right!");
-      score++;
-    }
-    else {
-      console.log("You are wrong", options[index]);
-    }
-    console.log("The score is " + score);
-    console.log("---------------------");
-    return true;
+    console.log("You are wrong");
   }
+  console.log("The score is " + score);
+  console.log("---------------------");
 }
 
 // array of objects
@@ -50,8 +41,8 @@ var questions = [{
 }];
 
 for (var i = 0; i < questions.length; i++) {
-  if (play(questions[i].question, questions[i].answer) === true) { }
-  else {
-    break;
-  }
+  play(questions[i].question, questions[i].answer);
 }
+
+console.log('\n\n***********************************');
+console.log('Your final score is ' + score); console.log('***********************************\n\n');
